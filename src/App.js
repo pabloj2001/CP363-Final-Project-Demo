@@ -2,6 +2,7 @@ import React from 'react';
 import './shared.css';
 import MainPage from './components/main/mainPage';
 import { NavBar } from './components/navBar';
+import  CartPage  from './components/cart/cartPage';
 
 class App extends React.Component {
 	constructor(props){
@@ -18,7 +19,8 @@ class App extends React.Component {
 			<div className='app'>
 				<NavBar onNavChange={this.onNavChange.bind(this)}/>
 				{
-					this.state.currentPage === 0 && <MainPage/>
+					this.state.currentPage === 0 && <MainPage/>,
+          this.state.currentPage === 2 && <CartPage/>
 				}
 			</div>
 		);

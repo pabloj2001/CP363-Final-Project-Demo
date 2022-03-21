@@ -13,4 +13,4 @@ function *mySaga() {
     yield ("GO_TO_CART", accessCart);
 };
 
-export default mySaga;
+export default mySaga;   
