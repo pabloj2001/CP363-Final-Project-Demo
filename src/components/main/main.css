@@ -1,0 +1,36 @@
+.main {
+    
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+    height: 40px;
+}
+
+.search-bar input {
+    border: 1px solid;
+    border-right: none;
+    border-color: var(--accent-color);
+    border-radius: 5px 0 0 5px;
+    width: 100%;
+    min-height: 40px;
+    padding: 0 0 0 20px;
+}
+
+.search-bar input::placeholder {
+    color: var(--main-color);
+}
+
+.search-bar button {
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    height: 42px;
+    max-height: 42px;
+}
+
+.search-bar button svg {
+    width: 20px;
+    height: 20px;
+}
