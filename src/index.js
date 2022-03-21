@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
 
+=======
+>>>>>>> ffc84609a170890fb47e5b5791220008ef088841
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

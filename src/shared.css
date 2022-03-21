@@ -1,0 +1,55 @@
+:root {
+    --main-color: #14213D;
+    --accent-color: #FCA311;
+    --background-color: #FFFFFF;
+}
+
+.app {
+    color: var(--main-color);
+    background-color: var(--background-color);
+}
+
+button {
+    background-color: var(--background-color);
+    border: 1px solid;
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    fill: var(--accent-color);
+    border-radius: 5px;
+    padding: 10px 10px;
+    transition-duration: 400ms;
+}
+
+button > svg, button > svg > path {
+    width: 20px;
+    height: 20px;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    fill: var(--background-color);
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    margin: 20px 20px;
+    font-size: x-large;
+}
+
+.nav-bar > button + button {
+    margin-left: 10px;
+}
+
+.separator {
+    margin-left: auto;
+}
+
+.page {
+    margin: 1rem;
+}
+
+.main {
+    
+}
