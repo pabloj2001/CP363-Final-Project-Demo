@@ -2,9 +2,8 @@ import React from 'react';
 import { ProductItem } from '../product';
 import { Spinner } from '../spinner';
 import $ from 'jquery';
-import './cart.css';
 
-class CartPage extends React.Component {
+class ShippingPage extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = { items: [] };
@@ -15,7 +14,7 @@ class CartPage extends React.Component {
 	fetchItems(){
 		// Call API here
 		$.ajax({
-			url: 'http://localhost:3213/add/getCartItems/',
+			url: 'http://localhost:3213/add/getShipmentsInfo/',
 			success: (data) => {
 				this.setState({ items: data.msg });
 			}
@@ -23,10 +22,10 @@ class CartPage extends React.Component {
 	}
 
 	render(){
-        let total = 0, totalTrans = 0;
+		let total = 0, totalTrans = 0;
 		return (
             this.state.items.length > 0 ?
-            <div className='page cart'>
+            <div className='page shipping'>
                 <div className='item-container'>
                     {
                         this.state.items.map((item, i) => {
@@ -35,10 +34,9 @@ class CartPage extends React.Component {
                             totalTrans += parseFloat(item.TRANS_COST ?? 0);
                             return <ProductItem
                                 key={i}
-                                page={'Cart'}
+                                page={'Shipping'}
                                 name={item.ITEM_NAME}
                                 cat={item.ITEM_CATEGORY}
-                                stock={item.ITEM_STOCK}
                                 userName={item.USER_FNAME}
                                 cost={cost}
                                 transCost={item.TRANS_COST ?? 0}
@@ -58,4 +56,4 @@ class CartPage extends React.Component {
 	}
 }
 
-export default CartPage;
+export default ShippingPage;
