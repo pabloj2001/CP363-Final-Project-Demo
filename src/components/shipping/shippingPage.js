@@ -26,6 +26,10 @@ class ShippingPage extends React.Component {
 		return (
             this.state.items.length > 0 ?
             <div className='page shipping'>
+                <div className="shipment-info">
+                    <span>Shipment ID: {this.state.items[0].SHIPMENT_ID}</span>
+                    <span>Shipment Address: {this.state.items[0].SHIPMENT_ADDRESS}</span>
+                </div>
                 <div className='item-container'>
                     {
                         this.state.items.map((item, i) => {

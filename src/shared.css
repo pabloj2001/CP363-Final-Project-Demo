@@ -50,6 +50,9 @@ button:disabled {
     top: 0;
     left: 0;
     background-color: var(--background-color);
+    z-index: 100;
+    border-bottom: 1px solid;
+    border-bottom-color: var(--accent-color);
 }
 
 .nav-bar > button + button {
@@ -127,4 +130,8 @@ button:disabled {
 
 .total > span + span {
     margin-top: 5px;
+}
+
+.shows-query {
+    outline: 2px red dashed;
 }

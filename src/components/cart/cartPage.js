@@ -51,6 +51,7 @@ class CartPage extends React.Component {
                     <span>Item Total: ${total}</span>
                     <span>Transaction Total: ${totalTrans}</span>
                     <span><strong>Total: ${total + totalTrans}</strong></span>
+                    <button className="pay">Pay</button>
                 </div>
             </div>
             : <Spinner/>
