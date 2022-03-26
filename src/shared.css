@@ -133,5 +133,23 @@ button:disabled {
 }
 
 .shows-query {
-    outline: 2px red dashed;
+    animation: pulse 1s ease-in-out infinite alternate;
+}
+
+.sql-popup {
+    box-shadow: 2px 2px var(--main-color);
+}
+
+.sql-popup span.keyword {
+    color: red;
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 0 0 var(--main-color);
+    }
+
+    to {
+        box-shadow: 0 0 0 3px var(--main-color);
+    }
 }

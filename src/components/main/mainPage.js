@@ -57,6 +57,7 @@ class MainPage extends React.Component {
 	}
 
 	render(){
+		let addedShowsQuery = false;
 		return (
 			<div className='page main'>
 				<SearchBar onSearch={this.onSearch.bind(this)}/>
@@ -64,6 +65,12 @@ class MainPage extends React.Component {
 					{
 						this.state.items.length > 0
 						? this.state.items.map((item, i) => {
+							let addShowsQuery = false;
+							if(!item.CART_ADDED && !addedShowsQuery){
+								addShowsQuery = true;
+								addedShowsQuery = true;
+							}
+
 							return <ProductItem
 								key={i}
 								page={'Main'}
@@ -73,6 +80,7 @@ class MainPage extends React.Component {
 								cost={item.ITEM_COST}
 								userName={item.USER_FNAME}
 								cartAdded={item.CART_ADDED}
+								showsQuery={addShowsQuery}
 								onAddToCart={() => this.onAddToCart(item.LISTING_ID)}/>
 						})
 						: <Spinner/>

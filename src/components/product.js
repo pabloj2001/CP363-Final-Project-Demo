@@ -26,7 +26,7 @@ export function ProductItem(props){
             </div>
             {
                 props.page !== 'Shipping' && props.onAddToCart &&
-                <button
+                <button className={props.showsQuery ? 'shows-query' : ''}
                     disabled={props.page === 'Main' && props.cartAdded === 1}
                     onClick={props.onAddToCart.bind(this)}>
                     {
