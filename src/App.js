@@ -16,19 +16,28 @@ class App extends React.Component {
 
 	componentDidMount(){
 		$(document.body).on('mouseenter', '.shows-query', e => {
-			this.hoverTimer = setTimeout(() => {
-				console.log(e);
-				this.setState({showQuery: e.target.dataset.query});
-			}, 1000);
+			if(!this.state.showQuery){
+				this.hoverTimer = setTimeout(() => {
+					console.log(e);
+					this.setState({showQuery: e.target.dataset.query});
+				}, 1000);
+			}
+		});
+
+		$(document.body).on('mouseleave', '.shows-query', e => {
+			if(!this.state.showQuery){
+				clearTimeout(this.hoverTimer);
+				this.setState({showQuery: null});
+			}
+		});
+
+		$(document.body).on('click', '.sql-popup', e => {
+			this.setState({showQuery: null});
 		});
 	}
 
 	onNavChange(page){
 		this.setState({currentPage: page});
-	}
-
-	hideSqlPopup(){
-		this.setState({showQuery: null});
 	}
 
 	render(){
@@ -45,10 +54,8 @@ class App extends React.Component {
 					this.state.currentPage === 2 && <CartPage/>
 				}
 				{
-					this.state.query &&
-					<SqlPopup
-						query={this.state.query}
-						hideSqlPopup={this.hideSqlPopup.bind(this)}/>
+					this.state.showQuery &&
+					<SqlPopup query={this.state.showQuery}/>
 				}
 			</div>
 		);

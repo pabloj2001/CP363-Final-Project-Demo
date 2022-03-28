@@ -137,11 +137,37 @@ button:disabled {
 }
 
 .sql-popup {
-    box-shadow: 2px 2px var(--main-color);
+    border: 2px solid var(--main-color);
+    position: fixed;
+    z-index: 200;
+    min-height: 200px;
+    font-size: 1.3rem;
+    width: 70vw;
+    top: 0;
+    left: 20vh;
+    background-color: var(--background-color);
+    padding: 20px;
+    margin: 0 20px;
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
+    animation: slide-down 500ms ease-in;
+    font-family: monospace;
 }
 
 .sql-popup span.keyword {
     color: red;
+}
+
+.sql-popup span.sub-query {
+    color: blue;
+}
+
+.sql-popup span.input {
+    color: green;
+}
+
+.sql-popup span.tab {
+    padding-left: 30px;
 }
 
 @keyframes pulse {
@@ -151,5 +177,15 @@ button:disabled {
 
     to {
         box-shadow: 0 0 0 3px var(--main-color);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        top: -100%;
+    }
+
+    to {
+        top: 0;
     }
 }
