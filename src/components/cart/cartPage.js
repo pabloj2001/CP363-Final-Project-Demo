@@ -23,16 +23,15 @@ class CartPage extends React.Component {
 	}
 
 	render(){
-        let total = 0, totalTrans = 0;
+        let total = 0;
 		return (
             this.state.items.length > 0 ?
             <div className='page cart'>
                 <div className='item-container'>
                     {
                         this.state.items.map((item, i) => {
-                            const cost = parseFloat(item?.ITEM_COST ?? 0) * (item.ITEM_QUANTITY ?? 1);
-                            total += cost;
-                            totalTrans += parseFloat(item.TRANS_COST ?? 0);
+                            const cost = parseFloat(item?.TRANS_COST ?? 0);
+                            total += cost * (item.ITEM_QUANTITY ?? 1);
                             return <ProductItem
                                 key={i}
                                 page={'Cart'}
@@ -41,17 +40,14 @@ class CartPage extends React.Component {
                                 stock={item.ITEM_STOCK}
                                 userName={item.USER_FNAME}
                                 cost={cost}
-                                transCost={item.TRANS_COST ?? 0}
                                 quantity={item.ITEM_QUANTITY ?? 1}/>
                         })
                     }
                 </div>
                 <hr/>
                 <div className='total'>
-                    <span>Item Total: ${total}</span>
-                    <span>Transaction Total: ${totalTrans}</span>
-                    <span><strong>Total: ${total + totalTrans}</strong></span>
-                    <button className="pay">Pay</button>
+                    <span><strong>Item Total: ${(total).toFixed(2)}</strong></span>
+                    <button className="pay">Pay & Ship</button>
                 </div>
             </div>
             : <Spinner/>

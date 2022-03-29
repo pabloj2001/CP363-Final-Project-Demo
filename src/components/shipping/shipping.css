@@ -1,0 +1,9 @@
+.page.shipping {
+    margin-top: 20px;
+}
+
+.shipment-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+}
