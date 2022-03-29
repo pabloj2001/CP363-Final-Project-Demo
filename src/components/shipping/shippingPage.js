@@ -44,7 +44,8 @@ class ShippingPage extends React.Component {
                                 userName={item.USER_FNAME}
                                 cost={cost}
                                 transCost={item.TRANS_COST ?? 0}
-                                quantity={item.ITEM_QUANTITY ?? 1}/>
+                                quantity={item.ITEM_QUANTITY ?? 1}
+                                shipDate = {item.DELIVERY_DATE}/>
                         })
                     }
                 </div>

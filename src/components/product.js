@@ -23,6 +23,7 @@ export function ProductItem(props){
                     <span style={{fontSize: '1rem'}}>{props.stock} in Stock</span>
                 }
                 <span>Sold By: {props.userName}</span>
+                <span>Delivered date : {props.shipDate}</span>
             </div>
             {
                 props.page !== 'Shipping' && props.onAddToCart &&
